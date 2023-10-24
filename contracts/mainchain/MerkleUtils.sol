@@ -27,7 +27,7 @@ contract MerkleUtils {
     /**
      * @notice Initialize a new SparseMerkleUtils contract, computing the default hashes for the sparse merkle tree (SMT)
      */
-    constructor() public {
+    constructor() {
         // Calculate & set the default hashes
         setDefaultHashes();
     }
