@@ -1,9 +1,9 @@
-pragma solidity ^0.6.6;
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.6.6;
 pragma experimental ABIEncoderV2;
 
 import "openzeppelin-solidity/contracts/access/Ownable.sol";
 import "openzeppelin-solidity/contracts/cryptography/ECDSA.sol";
-
 
 contract BlockCommittee is Ownable {
     struct BlockProposal {
@@ -41,11 +41,9 @@ contract BlockCommittee is Ownable {
         resetValidators(_validators);
     }
 
-    function setValidators(address[] calldata _validators)
-        external
-        onlyOwner
-        onlyWhenProposalOngoingStatus(false)
-    {
+    function setValidators(
+        address[] calldata _validators
+    ) external onlyOwner onlyWhenProposalOngoingStatus(false) {
         resetValidators(_validators);
     }
 
@@ -78,10 +76,10 @@ contract BlockCommittee is Ownable {
         signBlock(msg.sender, _signature);
     }
 
-    function signBlock(address _signer, bytes memory _signature)
-        public
-        onlyWhenProposalOngoingStatus(true)
-    {
+    function signBlock(
+        address _signer,
+        bytes memory _signature
+    ) public onlyWhenProposalOngoingStatus(true) {
         uint256 numValidators = validators.length;
         bool isValidator;
         for (uint256 i = 0; i < numValidators; i++) {

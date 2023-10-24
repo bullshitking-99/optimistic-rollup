@@ -1,4 +1,5 @@
-pragma solidity ^0.6.6;
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.6.6;
 pragma experimental ABIEncoderV2;
 
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";
@@ -9,7 +10,6 @@ import {MerkleUtils} from "./MerkleUtils.sol";
 import {TransitionEvaluator} from "./TransitionEvaluator.sol";
 import {TokenRegistry} from "./TokenRegistry.sol";
 import {ValidatorRegistry} from "./ValidatorRegistry.sol";
-
 
 contract RollupChain {
     using SafeMath for uint256;
@@ -25,7 +25,8 @@ contract RollupChain {
     ValidatorRegistry validatorRegistry;
     // All the blocks!
     dt.Block[] public blocks;
-    bytes32 public constant ZERO_BYTES32 = 0x0000000000000000000000000000000000000000000000000000000000000000;
+    bytes32 public constant ZERO_BYTES32 =
+        0x0000000000000000000000000000000000000000000000000000000000000000;
     // State tree height
     uint256 constant STATE_TREE_HEIGHT = 32;
     // TODO: Set a reasonable wait period
@@ -74,10 +75,9 @@ contract RollupChain {
         return blocks.length - 1;
     }
 
-    function setCommitterAddress(address _committerAddress)
-        external
-        onlyValidatorRegistry
-    {
+    function setCommitterAddress(
+        address _committerAddress
+    ) external onlyValidatorRegistry {
         committerAddress = _committerAddress;
     }
 
@@ -143,14 +143,9 @@ contract RollupChain {
         );
     }
 
-    function getStateRootAndStorageSlots(bytes memory _transition)
-        public
-        returns (
-            bool,
-            bytes32,
-            uint256[] memory
-        )
-    {
+    function getStateRootAndStorageSlots(
+        bytes memory _transition
+    ) public returns (bool, bytes32, uint256[] memory) {
         bool success;
         bytes memory returnData;
         bytes32 stateRoot;
@@ -178,15 +173,7 @@ contract RollupChain {
     function getStateRootsAndStorageSlots(
         bytes memory _preStateTransition,
         bytes memory _invalidTransition
-    )
-        public
-        returns (
-            bool,
-            bytes32,
-            bytes32,
-            uint256[] memory
-        )
-    {
+    ) public returns (bool, bytes32, bytes32, uint256[] memory) {
         bool success;
         bytes memory returnData;
         bytes32 preStateRoot;
@@ -431,10 +418,9 @@ contract RollupChain {
     function checkTransitionInclusion(
         dt.IncludedTransition memory _includedTransition
     ) public view returns (bool) {
-        bytes32 rootHash = blocks[_includedTransition
-            .inclusionProof
-            .blockNumber]
-            .rootHash;
+        bytes32 rootHash = blocks[
+            _includedTransition.inclusionProof.blockNumber
+        ].rootHash;
         bool isIncluded = merkleUtils.verify(
             rootHash,
             _includedTransition.transition,
@@ -447,22 +433,18 @@ contract RollupChain {
     /**
      * Get the hash of the transition.
      */
-    function getTransitionHash(bytes memory _transition)
-        public
-        pure
-        returns (bytes32)
-    {
+    function getTransitionHash(
+        bytes memory _transition
+    ) public pure returns (bytes32) {
         return keccak256(_transition);
     }
 
     /**
      * Get the bytes value for this storage.
      */
-    function getAccountInfoBytes(dt.AccountInfo memory _accountInfo)
-        public
-        pure
-        returns (bytes memory)
-    {
+    function getAccountInfoBytes(
+        dt.AccountInfo memory _accountInfo
+    ) public pure returns (bytes memory) {
         // If it's an empty storage slot, return 32 bytes of zeros (empty value)
         if (
             _accountInfo.account ==

@@ -1,9 +1,9 @@
-pragma solidity ^0.6.6;
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.6.6;
 pragma experimental ABIEncoderV2;
 
 /* Internal Imports */
 import {DataTypes as dt} from "./DataTypes.sol";
-
 
 /*
  * Merkle Tree Utilities for Rollup
@@ -51,11 +51,9 @@ contract MerkleUtils {
      * @param _dataBlocks The data being used to generate the tree.
      * @return the sparse merkle tree root
      */
-    function getMerkleRoot(bytes[] calldata _dataBlocks)
-        external
-        view
-        returns (bytes32)
-    {
+    function getMerkleRoot(
+        bytes[] calldata _dataBlocks
+    ) external view returns (bytes32) {
         uint256 nextLevelLength = _dataBlocks.length;
         uint256 currentLevel = 0;
         bytes32[] memory nodes = new bytes32[](nextLevelLength + 1); // Add one in case we have an odd number of leaves
@@ -273,11 +271,10 @@ contract MerkleUtils {
      * @param _right The right child
      * @return The parent node
      */
-    function getParent(bytes32 _left, bytes32 _right)
-        internal
-        pure
-        returns (bytes32)
-    {
+    function getParent(
+        bytes32 _left,
+        bytes32 _right
+    ) internal pure returns (bytes32) {
         return keccak256(abi.encodePacked(_left, _right));
     }
 
@@ -288,11 +285,10 @@ contract MerkleUtils {
      * @param _index The index of the bit we want to extract
      * @return The bit (1 or 0) in a uint8
      */
-    function getNthBitFromRight(uint256 _intVal, uint256 _index)
-        public
-        pure
-        returns (uint8)
-    {
+    function getNthBitFromRight(
+        uint256 _intVal,
+        uint256 _index
+    ) public pure returns (uint8) {
         return uint8((_intVal >> _index) & 1);
     }
 
@@ -301,11 +297,9 @@ contract MerkleUtils {
      * @param _parent The parent node
      * @return (rightChild, leftChild) -- the two children of the parent
      */
-    function getChildren(bytes32 _parent)
-        public
-        view
-        returns (bytes32, bytes32)
-    {
+    function getChildren(
+        bytes32 _parent
+    ) public view returns (bytes32, bytes32) {
         return (
             tree.nodes[getLeftSiblingKey(_parent)],
             tree.nodes[getRightSiblingKey(_parent)]

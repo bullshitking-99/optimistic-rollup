@@ -1,10 +1,10 @@
-pragma solidity ^0.6.6;
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.6.6;
 pragma experimental ABIEncoderV2;
 
 import "openzeppelin-solidity/contracts/access/Ownable.sol";
 import "openzeppelin-solidity/contracts/cryptography/ECDSA.sol";
 import {RollupChain} from "./RollupChain.sol";
-
 
 contract ValidatorRegistry is Ownable {
     address[] public validators;
@@ -26,10 +26,9 @@ contract ValidatorRegistry is Ownable {
         validators = _validators;
     }
 
-    function setRollupChainAddress(address _rollupChainAddress)
-        external
-        onlyOwner
-    {
+    function setRollupChainAddress(
+        address _rollupChainAddress
+    ) external onlyOwner {
         rollupChain = RollupChain(_rollupChainAddress);
         resetValidators(validators);
     }

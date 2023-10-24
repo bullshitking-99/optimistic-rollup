@@ -1,0 +1,26 @@
+{
+  "name": "optimistic-rollup",
+  "version": "1.0.0",
+  "description": "<p align=\"center\">\r   <img src=\"MTeslaEthereumlogo.png\" alt=\"demo\" />\r </p>",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bullshitking-99/optimistic-rollup.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bullshitking-99/optimistic-rollup/issues"
+  },
+  "homepage": "https://github.com/bullshitking-99/optimistic-rollup#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.0"
+  }
+}

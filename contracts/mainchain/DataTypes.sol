@@ -1,6 +1,7 @@
-pragma solidity ^0.6.6;
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.6.6;
 
-
+// 主侧链所有的类，在继承子类中直接创建实例
 contract DataTypes {
     struct Block {
         bytes32 rootHash;

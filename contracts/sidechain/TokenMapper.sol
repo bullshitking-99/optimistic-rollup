@@ -1,8 +1,8 @@
-pragma solidity ^0.6.6;
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.6.6;
 
 import "openzeppelin-solidity/contracts/access/Ownable.sol";
 import "./SidechainERC20.sol";
-
 
 contract TokenMapper is Ownable {
     mapping(address => address) public mainchainTokenToSidechainToken;

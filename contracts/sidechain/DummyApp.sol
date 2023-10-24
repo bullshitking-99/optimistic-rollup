@@ -1,7 +1,7 @@
-pragma solidity ^0.6.6;
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.6.6;
 
 import {ISidechainERC20} from "./ISidechainERC20.sol";
-
 
 contract DummyApp {
     address token;

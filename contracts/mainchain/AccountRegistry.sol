@@ -1,4 +1,5 @@
-pragma solidity ^0.6.6;
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.6.6;
 
 // OpenZeppelin/Contracts 是一个用于安全智能合约开发的库。
 // 它提供了ERC20、 ERC721、ERC777、ERC1155 等标准的实现

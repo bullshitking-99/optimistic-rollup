@@ -1,4 +1,5 @@
-pragma solidity ^0.6.6;
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.6.6;
 pragma experimental ABIEncoderV2;
 
 import {IERC20} from "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol";
@@ -9,7 +10,6 @@ import {RollupChain} from "./RollupChain.sol";
 import {TransitionEvaluator} from "./TransitionEvaluator.sol";
 import {AccountRegistry} from "./AccountRegistry.sol";
 import {TokenRegistry} from "./TokenRegistry.sol";
-
 
 contract DepositWithdrawManager {
     mapping(address => mapping(address => uint256)) public depositNonces;
