@@ -14,6 +14,7 @@ contract ValidatorRegistry is Ownable {
 
     event CommitterChanged(address newCommitter);
 
+    // 仅被链上合约调用
     modifier onlyRollupChain() {
         require(
             msg.sender == address(rollupChain),

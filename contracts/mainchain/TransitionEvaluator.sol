@@ -25,6 +25,8 @@ contract TransitionEvaluator {
     AccountRegistry accountRegistry;
     TokenRegistry tokenRegistry;
 
+    // 在合约中调用其它合约
+    // 可以增加一个修改地址的函数
     constructor(
         address _accountRegistryAddress,
         address _tokenRegistryAddress
