@@ -6,6 +6,9 @@ import "openzeppelin-solidity/contracts/access/Ownable.sol";
 import "openzeppelin-solidity/contracts/cryptography/ECDSA.sol";
 import {RollupChain} from "./RollupChain.sol";
 
+/// @title 链上区块验证者注册中心
+/// @notice 验证transition后的交易正确
+/// @dev 似乎
 contract ValidatorRegistry is Ownable {
     address[] public validators;
     address public currentCommitter;
@@ -31,6 +34,7 @@ contract ValidatorRegistry is Ownable {
         address _rollupChainAddress
     ) external onlyOwner {
         rollupChain = RollupChain(_rollupChainAddress);
+        // 更换主合约后重置验证轮
         resetValidators(validators);
     }
 
@@ -38,6 +42,7 @@ contract ValidatorRegistry is Ownable {
         resetValidators(_validators);
     }
 
+    // 重置验证轮
     function resetValidators(address[] memory _validators) internal {
         require(_validators.length > 0, "Empty validator set");
         require(address(rollupChain) != address(0), "RollupChain not set");
@@ -49,6 +54,7 @@ contract ValidatorRegistry is Ownable {
         rollupChain.setCommitterAddress(currentCommitter);
     }
 
+    // committer 提交区块时验证签名
     function checkSignatures(
         uint256 _blockNumber,
         bytes[] calldata _transitions,
@@ -68,6 +74,7 @@ contract ValidatorRegistry is Ownable {
             numSignatures++;
         }
 
+        // TODO 修复这个错误逻辑 所谓小于4 没道理 三目运算符也没必要
         // Require signatures from all the validators if less than 4, or 2/3 of
         // the validators if at least 4.
         bool hasEnoughSignatures = numValidators < 4
@@ -77,6 +84,7 @@ contract ValidatorRegistry is Ownable {
         return true;
     }
 
+    // round-robin 轮换交易提交者
     function pickNextCommitter() external onlyRollupChain {
         currentCommitterIndex = (currentCommitterIndex + 1) % validators.length;
         currentCommitter = validators[currentCommitterIndex];
