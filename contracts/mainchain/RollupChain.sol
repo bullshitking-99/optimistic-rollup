@@ -65,6 +65,8 @@ contract RollupChain {
     }
 
     /* Methods */
+
+    // 欺诈证明生效后，剪掉无效块后面的块
     function pruneBlocksAfter(uint256 _blockNumber) internal {
         for (uint256 i = _blockNumber; i < blocks.length; i++) {
             delete blocks[i];
@@ -75,6 +77,7 @@ contract RollupChain {
         return blocks.length - 1;
     }
 
+    // 验证者注册中心切换当前提交者
     function setCommitterAddress(
         address _committerAddress
     ) external onlyValidatorRegistry {
@@ -94,6 +97,7 @@ contract RollupChain {
             "Only the committer may submit blocks"
         );
         require(_blockNumber == blocks.length, "Wrong block number");
+        // 验证来自链下节点提交的区块签名，包含了其它验证者的签名，且需达到一定数量
         require(
             validatorRegistry.checkSignatures(
                 _blockNumber,

@@ -29,6 +29,7 @@ contract DataTypes {
         uint256 nonce;
     }
 
+    // transition - 由transaction引起的过渡态，可用于验证
     struct CreateAndDepositTransition {
         uint256 transitionType;
         bytes32 stateRoot;
