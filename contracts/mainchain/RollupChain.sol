@@ -111,12 +111,13 @@ contract RollupChain {
         for (uint256 i = 0; i < _transitions.length; i++) {
             emit Transition(_transitions[i]);
         }
-
+        // 一堆bytes作为叶子节点，求hash root
         bytes32 root = merkleUtils.getMerkleRoot(_transitions);
         dt.Block memory rollupBlock = dt.Block({
             rootHash: root,
             blockSize: _transitions.length
         });
+        // 因为乐观，所以直接push
         blocks.push(rollupBlock);
         // NOTE: Toggle the event if you'd like easier historical block queries
         emit RollupBlockCommitted(_blockNumber, _transitions);

@@ -107,6 +107,7 @@ contract DataTypes {
 
     struct IncludedStorageSlot {
         StorageSlot storageSlot;
+        // 兄弟节点
         bytes32[] siblings;
     }
 }

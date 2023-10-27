@@ -1,9 +1,15 @@
 <mxfile host="65bd71144e">
     <diagram id="FCGlnajyCNwjFbMMkbbG" name="第 1 页">
-        <mxGraphModel dx="608" dy="694" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="2679" dy="1388" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
+                <mxCell id="24" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#00FF80;dashed=1;strokeWidth=3;" vertex="1" parent="1">
+                    <mxGeometry x="-50" y="750" width="1580" height="500" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#007FFF;dashed=1;strokeWidth=3;" vertex="1" parent="1">
+                    <mxGeometry x="-30" y="120" width="1580" height="500" as="geometry"/>
+                </mxCell>
                 <mxCell id="5" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=oval;startFill=1;endArrow=open;endFill=0;" parent="1" source="3" target="4" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
@@ -34,6 +40,12 @@
                 </mxCell>
                 <mxCell id="11" value="&lt;div style=&quot;color: rgb(186, 190, 216); background-color: rgb(41, 45, 62); font-family: &amp;quot;Fira Code&amp;quot;, Consolas, &amp;quot;Microsoft Yahei&amp;quot;, Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; line-height: 19px;&quot;&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;span style=&quot;color: #82aaff;&quot;&gt;registerToken&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;span style=&quot;color: #89ddff;&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: #ffcb6b;&quot;&gt;address&lt;/span&gt; &lt;span style=&quot;font-style: italic;&quot;&gt;_tokenAddress&lt;/span&gt;&lt;span style=&quot;color: #89ddff;&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#3399FF;" parent="1" vertex="1">
                     <mxGeometry x="853.25" y="190" width="277.5" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="链上合约" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;strokeWidth=3;fontSize=30;" vertex="1" parent="1">
+                    <mxGeometry x="635" y="70" width="250" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="链下虚拟机" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;dashed=1;strokeWidth=3;fontSize=30;" vertex="1" parent="1">
+                    <mxGeometry x="635" y="670" width="250" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
