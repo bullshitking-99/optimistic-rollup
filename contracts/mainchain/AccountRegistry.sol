@@ -8,7 +8,7 @@ pragma solidity >=0.6.6;
 // 访问控制 ownable 只有合约管理员才能调用
 import "openzeppelin-solidity/contracts/access/Ownable.sol";
 // 椭圆曲线算法签名
-import "openzeppelin-solidity/contracts/cryptography/ECDSA.sol";
+import "../../node_modules/@openzeppelin/contracts/cryptography/ECDSA.sol";
 
 // 继承了"Ownable"合约
 contract AccountRegistry is Ownable {

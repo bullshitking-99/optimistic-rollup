@@ -2,8 +2,8 @@
 pragma solidity >=0.6.6;
 pragma experimental ABIEncoderV2;
 
-import {IERC20} from "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol";
-import "openzeppelin-solidity/contracts/cryptography/ECDSA.sol";
+import {IERC20} from "../../node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "../../node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 
 import {DataTypes as dt} from "./DataTypes.sol";
 import {RollupChain} from "./RollupChain.sol";
